@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import AddNote from './AddNote';
 
 function NoteList() {
     const [notes, setNote] = useState([
@@ -7,13 +8,12 @@ function NoteList() {
         {id:2, title:"note 2"},
         {id:3, title:"note 3"},
     ]);
-    const [text, setText] = useState('');
-    function addNote(){
+    function newNote(title){
         setNote([
             ...notes,
-            {id:notes.length+1, title: document.getElementById('input').value}
+            {id:notes.length+1, title: title}
         ]);
-        document.getElementById('input').value="";
+    
     }
   return (
     <div>
@@ -22,8 +22,7 @@ function NoteList() {
             <li key={note.id}>{note.title}</li>
         ))}
     </ul>
-    <input id='input' type="text"/>
-    <button onClick={addNote}>Ekle</button>
+    <AddNote newNote={newNote}/>
     </div>
   )
 }
