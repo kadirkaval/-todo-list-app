@@ -29,7 +29,7 @@ function NoteApp() {
     }
 
     return (
-        <div>
+        <div className='container'>
             <Navbar notes={notes}/>
             <NoteList notes={notes} removeNote={removeNote}/>
             <AddNote newNote={newNote} />
