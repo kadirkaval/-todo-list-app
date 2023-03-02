@@ -1,4 +1,4 @@
-import NoteList from "./conponents/NoteList";
+import NoteList from "./components/NoteList";
 
 function App() {
 
