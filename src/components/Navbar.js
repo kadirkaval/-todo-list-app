@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {NoteContext} from '../context/noteContext'
 
-function Navbar({notes}) {
+function Navbar() {
+  const {notes} = useContext(NoteContext);
   return (
     <div className='navbar'>
-        <h1>Navbar</h1>
+        <h1>NoteApp</h1>
         <p>Toplam {notes.length} adet not mevcut.</p>
     </div>
     

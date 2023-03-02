@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import {NoteContext} from '../context/noteContext'
 
-function AddNote({ newNote }) {
+
+function AddNote() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
+const {notes, dispatch}=useContext(NoteContext);
+
   function handleSubmit(e) {
     e.preventDefault();
-    newNote(title, description);
+    dispatch({
+      type:"ADD_NOTE",
+      id: notes.length + 1, title: title, description:description
+  })
     setTitle('')
     setDescription('')
   }
